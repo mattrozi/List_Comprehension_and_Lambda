@@ -99,16 +99,26 @@ check whether a given string contains a capital letter, a lower case letter,
 a number and a minimum length of 8 characters.
 (This is like a password verification function, HINT: Python function 'any' may be useful)
 """
-password = "Lak3rsya"
+
+'''
+password=input('Please enter a password: ')
 checks = [
-    lambda x: any(x.lower() in password),
-    lambda x: any(x.upper() in password),
-    lambda x: any(x.isalpha() in password),
-    lambda x: any(len(x) >= 8 in password),
+    lambda x: any(x.islower() for x in password),
+    lambda x: any(x.isupper() for x in password),
+    lambda x: any(x.isalpha() for x in password),
+    lambda x: any(len(x) >= 8 for x in password)
 ]
 
-checked_password = list(filter(checks, password))
-print(checked_password)
+if lambda x: any(x.islower() for x in password ) and lambda x: any(x.isupper() for x in password), lambda x: any(x.isalpha() for x in password),lambda x: any(len(x) >= 8 for x in password)
+
+
+if(checked_password=='True'):
+    print('Good Password')
+else:
+    print('Failed Password')
+
+    '''
+
 
 """ 7)
 Write a Python program to sort a list of tuples using Lambda.
@@ -119,3 +129,6 @@ original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sci
 # Expected Result:
 # [('Social sciences', 82), ('English', 88), ('Science', 90), ('Maths', 97)]
 """
+original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sciences', 82)]
+original_scores.sort(key=lambda x: x[1])
+print(original_scores)
