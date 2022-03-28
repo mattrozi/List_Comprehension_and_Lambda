@@ -9,6 +9,7 @@ Odd numbers from the said list:
 """
 
 from calendar import weekday
+from re import X
 
 
 original_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -100,24 +101,20 @@ a number and a minimum length of 8 characters.
 (This is like a password verification function, HINT: Python function 'any' may be useful)
 """
 
-'''
+
 password=input('Please enter a password: ')
-checks = [
+password_rules = [
     lambda x: any(x.islower() for x in password),
     lambda x: any(x.isupper() for x in password),
     lambda x: any(x.isalpha() for x in password),
-    lambda x: any(len(x) >= 8 for x in password)
-]
+    lambda x: len(x) > 7 ]
 
-if lambda x: any(x.islower() for x in password ) and lambda x: any(x.isupper() for x in password), lambda x: any(x.isalpha() for x in password),lambda x: any(len(x) >= 8 for x in password)
+#result = filter(lambda x: x in password_rules,password)
 
-
-if(checked_password=='True'):
-    print('Good Password')
-else:
-    print('Failed Password')
-
-    '''
+if (any(x.islower() for x in password) and any(x.isupper() for x in password ) and any(x.isalpha() for x in password) and len(password)>=8):
+    print("Good password")
+else: 
+     print('Bad Password')
 
 
 """ 7)
@@ -131,4 +128,4 @@ original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sci
 """
 original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sciences', 82)]
 original_scores.sort(key=lambda x: x[1])
-print(original_scores)
+#print(original_scores)
