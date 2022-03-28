@@ -74,10 +74,13 @@ fourNumbers = [x for x in range(1, 1001, 1) if "4" in str(x)]
 # print(fourNumbers)
 
 
-## count how many times the word 'the' appears in the text file - 'sometext.txt'
+## count how many times the word 'the' appears in the text file - 'sometext.txt'if "the" in myfile
 myfile = open("sometext.txt", "r")
-results = [x.lower().rstrip().count("the") for x in myfile if "the" in x]
+contents=myfile.read().lower().replace('\n','')
+#print(contents)
+results = [contents.count("the") ] #for x in myfile if "the" in myfile]
 print(results)
+
 
 
 ## Extract the numbers from the following phrase ##
