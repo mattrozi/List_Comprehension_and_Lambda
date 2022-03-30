@@ -38,7 +38,7 @@ for i in original_list:
 
 numbers = [34.6, -203.4, 44.9, 68.3, -12.2, 44.6, 12.7]
 newlist = [x for x in numbers if x > 0]
-# print(newlist)
+print(newlist)
 
 
 ## 2 create a list of integers which specify the length of each word in
@@ -48,7 +48,7 @@ sentence = "the quick brown fox jumps over the lazy dog"
 words = sentence.split()
 
 lengthOfWords = [len(x) for x in words if x != "the"]
-# print(lengthOfWords)
+print(lengthOfWords)
 
 
 ## Given dictionary is consisted of vehicles and their weights in kilograms.
@@ -66,20 +66,18 @@ dict = {
     "Motorcycle": 110,
 }
 vehicles = [key.upper() for key in dict if dict[key] < 5000]
-# print(vehicles)
+print(vehicles)
 
 
 ## Find all the numbers from 1 to 1000 that have a 4 in them
 fourNumbers = [x for x in range(1, 1001, 1) if "4" in str(x)]
-# print(fourNumbers)
+print(fourNumbers)
 
 
 ## count how many times the word 'the' appears in the text file - 'sometext.txt'if "the" in myfile
-myfile = open("sometext.txt", "r")
-contents=myfile.read().lower().replace('\n','')
-#print(contents)
-results = [contents.count("the") ] #for x in myfile if "the" in myfile]
-print(results)
+myfile = open("sometext.txt", "r").read().lower().split()
+results = [words for words in myfile if 'the' in myfile ] #for x in myfile if "the" in myfile]
+print(results.count('the'))
 
 
 
@@ -91,4 +89,4 @@ phrase = (
     "event, with about 3 or 4 that were classifled as serious per event."
 )
 numbers = [x for x in phrase if x.isdigit()]
-# print(numbers)
+print(numbers)

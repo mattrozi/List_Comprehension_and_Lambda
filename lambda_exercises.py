@@ -15,10 +15,10 @@ from re import X
 original_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 even_list = list(filter(lambda x: x % 2 == 0, original_list))
-# print(even_list)
+print(even_list)
 
 odd_list = list(filter(lambda x: x % 2 == 1, original_list))
-# print(odd_list)
+print(odd_list)
 
 
 """ 2)
@@ -103,21 +103,22 @@ a number and a minimum length of 8 characters.
 
 
 password=input('Please enter a password: ')
-password_rules = [
-    lambda x: any(x.islower() for x in password),
-    lambda x: any(x.isupper() for x in password),
-    lambda x: any(x.isalpha() for x in password),
-    lambda x: len(x) > 7 ]
 
-#result = filter(lambda x: x in password_rules,password)
+lowercase=lambda x:any(x.islower() for x in password)
+uppercase=lambda x:any(x.isupper() for x in password)
+digits=lambda x:any(x.isdigit() for x in password)
+length_password=lambda x: len(x)>=8
 
-if (any(x.islower() for x in password) and any(x.isupper() for x in password ) and any(x.isalpha() for x in password) and len(password)>=8):
-    print("Good password")
-else: 
-     print('Bad Password')
+if(lowercase(password) and uppercase(password) and digits(password) and length_password(password)):
+    print("This is a good password")
+else:
+    print("Bad Password")
 
 
-""" 7)
+
+
+"""
+ 7)
 Write a Python program to sort a list of tuples using Lambda.
 
 # Original list of tuples:
@@ -126,6 +127,8 @@ original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sci
 # Expected Result:
 # [('Social sciences', 82), ('English', 88), ('Science', 90), ('Maths', 97)]
 """
+
+
 original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sciences', 82)]
 original_scores.sort(key=lambda x: x[1])
-#print(original_scores)
+print(original_scores)
